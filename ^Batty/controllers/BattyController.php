@@ -35,12 +35,13 @@ class BattyController extends Controller {
     /**
      * Sets all Batty actions to include the Batty CSS
      *
-     * @param array $argv command arguments vector
+     * @param array         $argv command arguments vector
+     * @param IDataProvider $DB   Data Provider
      *
      * @return void
      */
-    public function __construct($argv) {
-        parent::__construct($argv);
+    public function __construct($argv = array('home'), IDataProvider $DB) {
+        parent::__construct($argv, $DB);
 
         // Includes Batty's css
         G::$V->_style('/^Batty/css/Batty.css');
